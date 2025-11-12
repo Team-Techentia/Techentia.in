@@ -1,26 +1,47 @@
+/* app/globals.css */
 @import "tailwindcss";
 
+/* -------------------------------------------------
+   1. CSS variables (light → default)
+   ------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fdfdfd;
+  --fg: #171717;
+  --accent: #5a39ca;
+  --primary: #ede8fe;
+  --secondary: #ffdaae;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -------------------------------------------------
+   2. Dark mode (class on <html>)
+   ------------------------------------------------- */
+.dark {
+  --bg: #0a0a0a;
+  --fg: #ededed;
+  --accent: #7c5bd4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* -------------------------------------------------
+   3. Apply variables globally
+   ------------------------------------------------- */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[var(--bg)] text-[var(--fg)] transition-colors duration-300;
+}
+
+/* -------------------------------------------------
+   4. Optional smooth transition for every element
+   ------------------------------------------------- */
+* {
+  @apply transition-colors duration-300;
+}
+
+/* -------------------------------------------------
+   5. Font variables (Geist)
+   ------------------------------------------------- */
+.font-sans {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+.font-mono {
+  font-family: var(--font-geist-mono), monospace;
 }
