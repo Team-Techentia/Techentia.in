@@ -1,6 +1,5 @@
 // components/ThemeProvider.tsx
 "use client";
-
 import { createContext, useContext, useEffect, ReactNode } from "react";
 
 type ThemeCtx = {

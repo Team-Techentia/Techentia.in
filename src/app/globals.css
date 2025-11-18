@@ -1,47 +1,28 @@
-/* app/globals.css */
 @import "tailwindcss";
 
-/* -------------------------------------------------
-   1. CSS variables (light → default)
-   ------------------------------------------------- */
-:root {
-  --bg: #fdfdfd;
-  --fg: #171717;
-  --accent: #5a39ca;
-  --primary: #ede8fe;
-  --secondary: #ffdaae;
+@theme {
+  --color-background: #fdfdfd;
+  --color-foreground: #171717;
+  --color-accent: #5a39ca;
+  --color-primary: #ede8fe;
+  --color-secondary: #ffdaae;
+
+  --breakpoint-3xl: 1920px;
 }
 
-/* -------------------------------------------------
-   2. Dark mode (class on <html>)
-   ------------------------------------------------- */
 .dark {
-  --bg: #0a0a0a;
-  --fg: #ededed;
-  --accent: #7c5bd4;
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+  --color-accent: #7c5bd4;
 }
 
-/* -------------------------------------------------
-   3. Apply variables globally
-   ------------------------------------------------- */
 html,
 body {
-  @apply bg-[var(--bg)] text-[var(--fg)] transition-colors duration-300;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  transition: color 0.3s, background-color 0.3s;
 }
 
-/* -------------------------------------------------
-   4. Optional smooth transition for every element
-   ------------------------------------------------- */
 * {
   @apply transition-colors duration-300;
-}
-
-/* -------------------------------------------------
-   5. Font variables (Geist)
-   ------------------------------------------------- */
-.font-sans {
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-}
-.font-mono {
-  font-family: var(--font-geist-mono), monospace;
 }

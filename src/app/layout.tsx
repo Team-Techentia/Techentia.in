@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import { StoreProvider } from "@/components";
+import { Providers } from "@/components";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"]
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Techentia | AI, Blockchain, and Full-Stack Agency",
   description: "Techentia builds world-class AI, Web3, and full-stack products for ambitious startups.",
   keywords: ["AI agency", "blockchain development", "web3 development", "SaaS development", "Techentia"],
@@ -40,13 +41,10 @@ export const metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <StoreProvider>
+      <body className={`${poppins.variable} ${inter.variable} antialiased`} suppressHydrationWarning>
+        <Providers>
           {children}
-        </StoreProvider>
+        </Providers>
       </body>
     </html>
   );
