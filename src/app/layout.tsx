@@ -1,18 +1,51 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components";
+import { Bebas_Neue, Urbanist } from "next/font/google";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const bebas = Bebas_Neue({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"]
+  weight: "400",
+  variable: "--font-heading",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const urbanist = Urbanist({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-body",
 });
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+      </head>
+      <body className={`${bebas.variable} ${urbanist.variable} antialiased`}>
+        <Providers>
+          {children}
+        </Providers>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const saved = localStorage.getItem("techentia_theme");
+                  const system = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                  const dark = saved === "dark" || (!saved && system);
+                  const html = document.documentElement;
+                  html.classList.toggle("dark", dark);
+                  html.classList.toggle("light", !dark);
+                  html.setAttribute("data-theme", dark ? "dark" : "light");
+                } catch (_) {}
+              })();
+            `,
+          }}
+        />
+      </body>
+    </html>
+  );
+}
+
 
 export const metadata: Metadata = {
   title: "Techentia | AI, Blockchain, and Full-Stack Agency",
@@ -37,15 +70,3 @@ export const metadata: Metadata = {
     images: ["/slogo.png"],
   },
 };
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
-  return (
-    <html lang="en">
-      <body className={`${poppins.variable} ${inter.variable} antialiased`} suppressHydrationWarning>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
-    </html>
-  );
-}

@@ -5,7 +5,13 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="flex-1 bg-red-600 grid items-center gap-12 lg:grid-cols-2">
+      <div className="flex-1 bg-red-60 grid items-center gap-12 lg:grid-cols-2">
+        {/* <HeroContent />
+
+        <div className="w-120 h-120 relative flex items-center justify-center">
+          <Image src="/videos/ethereum.gif" fill alt="Ethereum" priority />
+          <div className="absolute inset-0 rounded-full bg-accent/20 blur-3xl animate-pulse pointer-events-none" />
+        </div> */}
       </div>
     </>
   );
@@ -13,8 +19,8 @@ export default function Home() {
 
 function HeroContent() {
   return (
-    <div className="space-y-8">
-      <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+    <div className="space-y-8 font-body">
+      <h1 className="font-poppins font-heading text-[96px] lg:text-6xl xl:text-7xl font-bold leading-tight">
         EXPERT SERVICES THAT DRIVE{" "}
         <span className="relative inline-block">
           REAL GROWTH

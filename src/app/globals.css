@@ -3,11 +3,20 @@
 @theme {
   --color-background: #fdfdfd;
   --color-foreground: #171717;
+  /* --color-foreground: red; */
   --color-accent: #5a39ca;
   --color-primary: #ede8fe;
   --color-secondary: #ffdaae;
 
-  --breakpoint-3xl: 1920px;
+  --breakpoint-xxs: 375px;
+  --breakpoint-xs: 475px;
+  --breakpoint-3xl: 1728px;
+  --breakpoint-4xl: 1920px;
+}
+
+@theme inline {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
 }
 
 .dark {
@@ -16,13 +25,8 @@
   --color-accent: #7c5bd4;
 }
 
-html,
-body {
+html, body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   transition: color 0.3s, background-color 0.3s;
-}
-
-* {
-  @apply transition-colors duration-300;
 }

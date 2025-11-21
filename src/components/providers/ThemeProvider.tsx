@@ -1,49 +1,31 @@
-// components/ThemeProvider.tsx
 "use client";
-import { createContext, useContext, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type ThemeCtx = {
-  toggle: () => void;
-  isDark: boolean;
-};
+type ThemeCtx = { toggle: () => void; isDark: boolean; };
 
-const ThemeContext = createContext<ThemeCtx>({
-  toggle: () => {},
-  isDark: false,
-});
+const ThemeContext = createContext<ThemeCtx>({ toggle: () => { }, isDark: false, });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [isDark, setIsDark] = useState<boolean | null>(null);
+
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const shouldBeDark = saved === "dark" || (!saved && prefersDark);
-
     const html = document.documentElement;
-    html.classList.toggle("dark", shouldBeDark);
-    html.classList.toggle("light", !shouldBeDark);
-
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const handler = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem("theme")) {
-        html.classList.toggle("dark", e.matches);
-        html.classList.toggle("light", !e.matches);
-      }
-    };
-
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
+    setIsDark(html.classList.contains("dark"));
   }, []);
 
   const toggle = () => {
+    const next = !isDark;
     const html = document.documentElement;
-    const willBeDark = !html.classList.contains("dark");
 
-    html.classList.toggle("dark", willBeDark);
-    html.classList.toggle("light", !willBeDark);
-    localStorage.setItem("theme", willBeDark ? "dark" : "light");
+    html.classList.toggle("dark", next);
+    html.classList.toggle("light", !next);
+    html.setAttribute("data-theme", next ? "dark" : "light");
+
+    localStorage.setItem("techentia_theme", next ? "dark" : "light");
+    setIsDark(next);
   };
 
-  const isDark = typeof window !== "undefined" && document.documentElement.classList.contains("dark");
+  if (isDark === null) return null;
 
   return (
     <ThemeContext.Provider value={{ toggle, isDark }}>
