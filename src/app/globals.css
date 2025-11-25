@@ -4,7 +4,10 @@
   --color-background: #fdfdfd;
   --color-foreground: #171717;
   /* --color-foreground: red; */
-  --color-accent: #5a39ca;
+  /* --color-accent: #6540E0; */
+    --color-accent: #5a39ca;
+  --color-accent-dark: #3E06A3;
+  --color-accent-light: #6614FD;
   --color-primary: #ede8fe;
   --color-secondary: #ffdaae;
 
@@ -22,11 +25,20 @@
 .dark {
   --color-background: #0a0a0a;
   --color-foreground: #ededed;
-  --color-accent: #7c5bd4;
+  /* --color-accent: #7c5bd4; */
+  /* --color-accent: #7A3DED; */
+  /* --color-accent: #6F68E9; */
+  /* --color-accent: #6540E0; */
+  --color-accent: #5a39ca;
 }
 
 html, body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   transition: color 0.3s, background-color 0.3s;
+}
+
+*::selection{
+  background-color: var(--color-accent);
+  color: #ffffff;
 }

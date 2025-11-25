@@ -15,8 +15,8 @@ const NAV_LINKS = [
 
 export default function Navbar() {
     return (
-        <nav className="fixed top-4 z-50 w-full px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto h-16 max-w-7xl rounded-[36px] bg-foreground/7.5 backdrop-blur-">
+        <nav className="fixed top-4 z-50 w-full ">
+            <div className="max-w-7xl max-4xl:max-w-[90%] 4xl:max-w-[1900px] h-16 mx-auto rounded-[36px] bg-foreground/7.5 backdrop-blur-sm">
                 <div className="flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
 
                     {/* Logo */}

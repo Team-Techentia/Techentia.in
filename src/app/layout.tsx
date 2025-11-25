@@ -1,6 +1,7 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import { Providers } from "@/components";
+import { Cursor, Providers } from "@/components";
 import { Bebas_Neue, Urbanist } from "next/font/google";
 
 const bebas = Bebas_Neue({
@@ -20,7 +21,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning>
       <head>
       </head>
-      <body className={`${bebas.variable} ${urbanist.variable} antialiased`}>
+      <body className={`${bebas.variable} ${urbanist.variable} antialiased`} suppressHydrationWarning>
+        <Cursor />
         <Providers>
           {children}
         </Providers>
