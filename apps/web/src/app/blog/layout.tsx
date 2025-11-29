@@ -1,14 +1,16 @@
-// app/(home)/layout.tsx
+// app/blog/layout.tsx
 
 import React, { Suspense } from "react";
-import { HomeLayout, Loader } from "@/components";
+import { HomeLayout, Loader, Providers } from "@/components";
 
 export default function HomeRootLayout({ children, }: { children: React.ReactNode }) {
   return (
-    <Suspense fallback={<Loader />}>
-      <HomeLayout>
-        {children}
-      </HomeLayout>
-    </Suspense>
+    <Providers>
+      <Suspense fallback={<Loader />}>
+        <HomeLayout>
+          {children}
+        </HomeLayout>
+      </Suspense>
+    </Providers>
   );
 }

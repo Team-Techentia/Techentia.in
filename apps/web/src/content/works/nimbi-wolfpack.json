@@ -1,0 +1,79 @@
+{
+  "slug": "nimbi-wolfpack",
+  "title": "Nimbi Wolfpack - Web3 Gaming Ecosystem",
+  "description": "A comprehensive Web3 ecosystem featuring a 3D video game, dual cryptocurrency system (ERC-404 & ERC-20), 4 DApps, and a 10,000 NFT collection uniting humanity through crypto innovation.",
+  "client": "Nimbi Wolfpack",
+  "category": ["web3", "ai"],
+  "tags": ["Web3", "NFT", "DApp", "Gaming", "ERC-404", "Token Development", "Smart Contracts", "3D Animation"],
+  "featured": true,
+  "publishedAt": "2024-03-15",
+  "completedAt": "2024-02-28",
+  "thumbnail": "/works/nimbi-wolfpack/thumbnail.jpg",
+  "heroImage": "/works/nimbi-wolfpack/hero.png",
+  "images": [
+    "/works/nimbi-wolfpack/nimbi2.png",
+    "/works/nimbi-wolfpack/nimbi3.png",
+    "/works/nimbi-wolfpack/nimbi4.png"
+  ],
+  "videos": [
+    "/works/nimbi-wolfpack/ecosystem-demo.mp4"
+  ],
+  "gifs": [
+    "/videos/ethereum.gif"
+  ],
+  "testimonial": {
+    "quote": "We hired Techentia for our upcoming decentralized crypto company. Their work was exceptional and perfectly aligned with our design specifications",
+    "author": "Dack Thomas",
+    "role": "Founder",
+    "avatar": "/works/nimbi-wolfpack/client-avatar1.png"
+  },
+  "metrics": [
+    {
+      "label": "NFT Collection Size",
+      "value": "10,000"
+    },
+    {
+      "label": "DApps Developed",
+      "value": "4"
+    },
+    {
+      "label": "Token Standards",
+      "value": "2"
+    },
+    {
+      "label": "Development Time",
+      "value": "4 months"
+    }
+  ],
+  "technologies": [
+    "Next.js",
+    "GSAP",
+    "Three.js",
+    "Solidity",
+    "Ethers.js",
+    "Web3.js",
+    "Hardhat",
+    "TypeScript",
+    "TailwindCSS",
+    "Framer Motion"
+  ],
+  "liveUrl": "https://www.nimbiwolfpack.com",
+  "caseStudyUrl": "https://nimbi2.techentia.com",
+  "seo": {
+    "title": "Nimbi Wolfpack - Web3 Gaming Ecosystem | Techentia Case Study",
+    "description": "Discover how Techentia built a complete Web3 ecosystem for Nimbi Wolfpack including a 3D game, dual token system, 4 DApps, and 10K NFT collection with stunning animations.",
+    "keywords": [
+      "web3 development",
+      "nft collection",
+      "erc-404 token",
+      "blockchain gaming",
+      "crypto ecosystem",
+      "smart contract development",
+      "dapp development",
+      "token converter",
+      "web3 animation",
+      "gsap web3"
+    ],
+    "ogImage": "/works/nimbi/og-image.jpg"
+  }
+}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { servicesList } from "./consts/services";
+import { servicesList } from "@/lib/consts";
 
 export default function Services() {
   return (

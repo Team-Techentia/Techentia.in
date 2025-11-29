@@ -4,7 +4,7 @@ export default function HeroContent() {
     return (
         <div className="grid lg:grid-cols-2">
             <div className="space-y-8 font-body">
-                <h1 className="font-poppins font-heading text-[96px] lg:text-6xl xl:text-7xl font-bold leading-tight">
+                <h1 className="font-heading text-[96px] lg:text-6xl xl:text-7xl leading-tight">
                     EXPERT SERVICES THAT DRIVE{" "}
                     <span className="relative inline-block">
                         REAL GROWTH

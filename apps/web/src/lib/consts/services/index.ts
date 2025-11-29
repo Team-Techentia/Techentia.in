@@ -1,3 +1,4 @@
+// @/lib/consts/services/index.ts
 import { illustrationAI, illustrationApp, illustrationContact, illustrationCrypto, illustrationLaptop, illustrationSecurity, illustrationStartup, illustrationWeb, } from "@/assets";
 
 export const servicesList = [

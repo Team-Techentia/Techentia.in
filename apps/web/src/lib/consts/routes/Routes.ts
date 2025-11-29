@@ -9,5 +9,5 @@ export const ROUTES = {
         DETAIL: (id: string) => `/works/${id}`
     },
     ABOUT: "/about",
-    CONTACT: "/contact-us",
+    CONTACT: "/contact",
 };

@@ -1,5 +1,5 @@
 {
-  "name": "techentia2.0",
+  "name": "web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,23 +11,26 @@
   "dependencies": {
     "@tanstack/react-query": "^5.90.8",
     "axios": "^1.13.2",
+    "gray-matter": "^4.0.3",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.553.0",
-    "next": "16.0.1",
+    "next": "16.0.4",
+    "next-mdx-remote": "^5.0.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "@repo/ui": "workspace:*",
     "@tailwindcss/postcss": "^4",
+    "@techentia/eslint-config": "workspace:*",
+    "@techentia/typescript-config": "workspace:*",
+    "@techentia/ui": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.0.1",
+    "eslint-config-next": "16.0.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

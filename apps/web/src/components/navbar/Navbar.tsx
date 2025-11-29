@@ -9,7 +9,7 @@ const NAV_LINKS = [
     { label: "Home", href: ROUTES.HOME },
     { label: "Services", href: ROUTES.SERVICES.ROOT },
     { label: "Works", href: ROUTES.WORKS.ROOT },
-    { label: "About", href: ROUTES.ABOUT },
+    { label: "About", href: ROUTES.WORKS.DETAIL("nimbi-wolfpack") },
     { label: "Contact Us", href: ROUTES.CONTACT },
 ];
 
