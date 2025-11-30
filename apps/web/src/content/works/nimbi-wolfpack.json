@@ -16,10 +16,10 @@
     "/works/nimbi-wolfpack/nimbi4.png"
   ],
   "videos": [
-    "/works/nimbi-wolfpack/ecosystem-demo.mp4"
+    "/works/nimbi-wolfpack/ecosystem-demo.webm",
+    "/videos/ethereum.webm"
   ],
   "gifs": [
-    "/videos/ethereum.gif"
   ],
   "testimonial": {
     "quote": "We hired Techentia for our upcoming decentralized crypto company. Their work was exceptional and perfectly aligned with our design specifications",
@@ -74,6 +74,6 @@
       "web3 animation",
       "gsap web3"
     ],
-    "ogImage": "/works/nimbi/og-image.jpg"
+    "ogImage": "/works/nimbi-wolfpack/hero.png"
   }
 }

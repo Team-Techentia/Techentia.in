@@ -1,3 +1,4 @@
+// app/(main)/(home)/_components/Hero.tsx
 import Image from "next/image";
 
 export default function HeroContent() {
@@ -23,7 +24,16 @@ export default function HeroContent() {
             </div>
             <div className="w-full h-full flex justify-center items-center">
                 <div className="w-120 h-120 relative flex items-center justify-center">
-                    <Image src="/videos/ethereum.gif" fill alt="Ethereum" priority />
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover"
+                    >
+                        <source src="/videos/ethereum.webm" type="video/webm" />
+                        {/* <source src="/videos/ethereum.mp4" type="video/mp4" /> */}
+                    </video>
                     <div className="absolute inset-0 rounded-full bg-accent/20 blur-3xl animate-pulse pointer-events-none" />
                 </div>
             </div>

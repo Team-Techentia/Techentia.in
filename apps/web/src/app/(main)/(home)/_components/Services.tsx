@@ -1,3 +1,4 @@
+// app/(main)/(home)/_components/Services.tsx
 import Image from "next/image";
 import { servicesList } from "@/lib/consts";
 
