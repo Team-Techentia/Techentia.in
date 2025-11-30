@@ -7,6 +7,7 @@ import { ServiceMetadata } from '@/lib/types';
 const servicesDirectory = path.join(process.cwd(), 'src/content/services');
 
 export async function getAllServices(): Promise<ServiceMetadata[]> {
+    if (!fs.existsSync(servicesDirectory)) return [];
     const fileNames = fs.readdirSync(servicesDirectory);
 
     const services = fileNames

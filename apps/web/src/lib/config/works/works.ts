@@ -26,6 +26,7 @@ export async function getWorkBySlug(slug: string): Promise<{ metadata: WorkMetad
 const worksDirectory = path.join(process.cwd(), 'src/content/works');
 
 export async function getAllWorks(): Promise<WorkMetadata[]> {
+    if (!fs.existsSync(worksDirectory)) return [];
     const fileNames = fs.readdirSync(worksDirectory);
 
     const works = fileNames
