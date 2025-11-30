@@ -44,6 +44,7 @@ export async function getServiceBySlug(slug: string): Promise<{ metadata: Servic
 }
 
 export function getServiceSlugs(): string[] {
+    if (!fs.existsSync(servicesDirectory)) return [];
     const fileNames = fs.readdirSync(servicesDirectory);
     return fileNames
         .filter(fileName => fileName.endsWith('.json'))

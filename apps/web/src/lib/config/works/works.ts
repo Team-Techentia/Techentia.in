@@ -46,6 +46,7 @@ export async function getAllWorks(): Promise<WorkMetadata[]> {
 }
 
 export function getWorkSlugs(): string[] {
+    if (!fs.existsSync(worksDirectory)) return [];
     const fileNames = fs.readdirSync(worksDirectory);
     return fileNames
         .filter(fileName => fileName.endsWith('.json'))
