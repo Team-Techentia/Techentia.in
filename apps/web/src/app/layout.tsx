@@ -46,14 +46,41 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             __html: JSON.stringify(TechentiaStructuredData)
           }}
         />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id=GTM-MTVKKS8H'+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MTVKKS8H');
+      `,
+          }}
+        />
+
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-MTVKKS8H"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GTM-MTVKKS8H');
+      `,
+          }}
+        />
       </head>
 
       <body className={`${bebas.variable} ${urbanist.variable} antialiased`} suppressHydrationWarning>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTVKKS8H"
+          height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
         {children}
         <Suspense fallback={null}>
           <Cursor />
         </Suspense>
       </body>
-    </html>
+    </html >
   );
 }
