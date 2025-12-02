@@ -1,9 +1,9 @@
 import { ROUTES, } from "./routes/Routes";
 import { servicesList, } from "./services"
-import { CONTENT_CONFIG, } from "./content/content"
+import { TechentiaMetaData, TechentiaStructuredData, } from "./techentia/metadata";
 
 export {
+    TechentiaMetaData, TechentiaStructuredData,
     ROUTES,
     servicesList,
-    CONTENT_CONFIG,
 }

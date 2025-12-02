@@ -1,5 +1,7 @@
 // app/(main)/services/page.tsx
 
+import { ComingSoon } from "../_ComingSoon";
+
 export const dynamic = "force-static";
 
 export const metadata = {
@@ -10,8 +12,6 @@ export const metadata = {
 
 export default function page() {
   return (
-    <div>
-      
-    </div>
+      <ComingSoon title="Our Services" />
   )
 }

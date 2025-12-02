@@ -1,3 +1,4 @@
+// @/components/cursor
 "use client";
 import dynamic from "next/dynamic";
 

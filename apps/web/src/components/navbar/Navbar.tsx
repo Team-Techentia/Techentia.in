@@ -9,19 +9,19 @@ const NAV_LINKS = [
     { label: "Home", href: ROUTES.HOME },
     { label: "Services", href: ROUTES.SERVICES.ROOT },
     { label: "Works", href: ROUTES.WORKS.ROOT },
-    { label: "About", href: ROUTES.WORKS.DETAIL("nimbi-wolfpack") },
+    { label: "About", href: ROUTES.ABOUT },
     { label: "Contact Us", href: ROUTES.CONTACT },
 ];
 
 export default function Navbar() {
     return (
-        <nav className="fixed top-4 z-50 w-full ">
-            <div className="max-w-7xl max-4xl:max-w-[90%] 4xl:max-w-[1900px] h-16 mx-auto rounded-[36px] bg-foreground/7.5 backdrop-blur-sm">
+        <nav className="fixed top-4 z-50 w-full">
+            <div className="max-w-7xl max-4xl:max-w-[90%] 4xl:max-w-[1900px] h-14 sm:h-16 mx-auto rounded-[36px] bg-foreground/7.5 backdrop-blur-sm">
                 <div className="flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
 
                     {/* Logo */}
                     <Link href="/" className="group flex items-center" aria-label="Techentia Home">
-                        <div className="relative h-6 w-6 overflow-hidden transition-transform group-hover:scale-105">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 relative overflow-hidden transition-transform group-hover:scale-105">
                             <Logo className="size-full object-fill text-foreground" />
                         </div>
                     </Link>

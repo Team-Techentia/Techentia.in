@@ -1,1 +1,0 @@
-export type { ServiceCategory, ServiceMetadata, WorkCategory, WorkMetadata, } from "./config/config"
