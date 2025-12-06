@@ -1,7 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import { Bebas_Neue, Urbanist } from "next/font/google";
+import { Bebas_Neue, Inter, Urbanist } from "next/font/google";
 import { Cursor } from "@/components";
 import { TechentiaMetaData, TechentiaStructuredData } from "@/lib/consts";
 import { Suspense } from "react";
@@ -16,6 +16,12 @@ const urbanist = Urbanist({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-body",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-regular",
 });
 
 export const metadata: Metadata = TechentiaMetaData;
@@ -73,12 +79,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
 
-      <body className={`${bebas.variable} ${urbanist.variable} antialiased`} suppressHydrationWarning>
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTVKKS8H"
-          height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
+      <body className={`${bebas.variable} ${urbanist.variable} ${inter.variable} antialiased`} suppressHydrationWarning>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTVKKS8H" height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
         {children}
         <Suspense fallback={null}>
-          <Cursor />
+          {/* <Cursor /> */}
         </Suspense>
       </body>
     </html >

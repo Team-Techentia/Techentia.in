@@ -29,7 +29,7 @@ export const TechentiaMetaData: Metadata = {
 };
 
 export const TechentiaStructuredData = {
-    "@context": "https://s  chema.org",
+    "@context": "https://schema.org",
     "@type": "Organization",
     name: "Techentia",
     url: "https://techentia.com",

@@ -1,9 +1,14 @@
+"use client";
 import { Search } from "lucide-react";
 import { ThemeToggle } from "@/components";
 import Link from "next/link";
 import Image from "next/image";
 import { Logo } from "@/assets";
 import { ROUTES } from "@/lib/consts";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const NAV_LINKS = [
     { label: "Home", href: ROUTES.HOME },
@@ -14,9 +19,63 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+    const navRef = useRef<HTMLDivElement>(null);
+
+   useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
+    let lastScroll = window.scrollY;
+    const threshold = 80;
+
+    ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        onUpdate: () => {
+            const currentScroll = window.scrollY;
+            const scrollingDown = currentScroll > lastScroll;
+
+            if (currentScroll < threshold) {
+                gsap.to(nav, {
+                    y: 0,
+                    opacity: 1,
+                    width: "95%",
+                    duration: 0.5,
+                    ease: "power3.out"
+                });
+                lastScroll = currentScroll;
+                return;
+            }
+
+            if (scrollingDown) {
+                // Hide navbar + shrink width
+                gsap.to(nav, {
+                    y: -100,        // move out of view
+                    opacity: 0,     // fade out
+                    width: "60%",   // shrink while hiding
+                    duration: 2,
+                    ease: "power3.out"
+                });
+            } else {
+                // Show navbar + expand width
+                gsap.to(nav, {
+                    y: 0,           // bring back in view
+                    opacity: 1,     // fade in
+                    width: "95%",  // expand to full width
+                    duration: 2,
+                    ease: "power3.out"
+                });
+            }
+
+            lastScroll = currentScroll;
+        }
+    });
+}, []);
+
+
     return (
         <nav className="fixed top-4 z-50 w-full">
-            <div className="max-w-7xl max-4xl:max-w-[90%] 4xl:max-w-[1900px] h-14 sm:h-16 mx-auto rounded-[36px] bg-foreground/7.5 backdrop-blur-sm">
+            <div ref={navRef} className="w-[95%] xl:max-w-[90%] 4xl:max-w-[1800px]! h-14 sm:h-16 mx-auto rounded-[36px] bg-foreground/7.5 backdrop-blur-sm">
                 <div className="flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
 
                     {/* Logo */}

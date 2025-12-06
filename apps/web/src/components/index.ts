@@ -6,6 +6,9 @@ import HomeLayout from "./layout/HomeLayout";
 import Navbar from "./navbar/Navbar";
 import Cursor from "./cursor/Cursor";
 
+// Ui components
+export * from "./ui";
+
 export {
     Cursor,
     Navbar,
