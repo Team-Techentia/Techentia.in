@@ -24,7 +24,7 @@ export default function About() {
                     <Image src={aboutLeft} alt="" className="size-full object-cover" />
                 </div>
                 <div className="flex flex-col justify-between bg-pastel-secondary text-secondary-foreground rounded-3xl px-6.5 py-5 3xl:py-7">
-                    <H3 title="Trusted by 100+ Clients Worldwide" />
+                    <H3 title="Trusted by 20+ Clients Worldwide" />
                     <P text="Our dedication to quality ensures long‑lasting partnerships and impactful outcomes"></P>
                 </div>
             </div>

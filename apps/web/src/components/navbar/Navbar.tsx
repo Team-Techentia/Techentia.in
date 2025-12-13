@@ -21,68 +21,75 @@ const NAV_LINKS = [
 export default function Navbar() {
     const navRef = useRef<HTMLDivElement>(null);
 
-   useEffect(() => {
-    const nav = navRef.current;
-    if (!nav) return;
+    useEffect(() => {
+        const nav = navRef.current;
+        if (!nav) return;
 
-    let lastScroll = window.scrollY;
-    const threshold = 80;
+        let lastScroll = window.scrollY;
+        const threshold = 80;
 
-    ScrollTrigger.create({
-        start: 0,
-        end: "max",
-        onUpdate: () => {
-            const currentScroll = window.scrollY;
-            const scrollingDown = currentScroll > lastScroll;
+        ScrollTrigger.create({
+            start: 0,
+            end: "max",
+            onUpdate: () => {
+                const currentScroll = window.scrollY;
+                const scrollingDown = currentScroll > lastScroll;
 
-            if (currentScroll < threshold) {
-                gsap.to(nav, {
-                    y: 0,
-                    opacity: 1,
-                    width: "95%",
-                    duration: 0.5,
-                    ease: "power3.out"
-                });
+                if (currentScroll < threshold) {
+                    gsap.to(nav, {
+                        y: 0,
+                        opacity: 1,
+                        width: "95%",
+                        duration: 0.5,
+                        ease: "power3.out"
+                    });
+                    lastScroll = currentScroll;
+                    return;
+                }
+
+                if (scrollingDown) {
+                    // Hide navbar + shrink width
+                    gsap.to(nav, {
+                        y: -100,        // move out of view
+                        opacity: 0,     // fade out
+                        width: "60%",   // shrink while hiding
+                        duration: 2,
+                        ease: "power3.out"
+                    });
+                } else {
+                    // Show navbar + expand width
+                    gsap.to(nav, {
+                        y: 0,           // bring back in view
+                        opacity: 1,     // fade in
+                        width: "95%",  // expand to full width
+                        duration: 2,
+                        ease: "power3.out"
+                    });
+                }
+
                 lastScroll = currentScroll;
-                return;
             }
-
-            if (scrollingDown) {
-                // Hide navbar + shrink width
-                gsap.to(nav, {
-                    y: -100,        // move out of view
-                    opacity: 0,     // fade out
-                    width: "60%",   // shrink while hiding
-                    duration: 2,
-                    ease: "power3.out"
-                });
-            } else {
-                // Show navbar + expand width
-                gsap.to(nav, {
-                    y: 0,           // bring back in view
-                    opacity: 1,     // fade in
-                    width: "95%",  // expand to full width
-                    duration: 2,
-                    ease: "power3.out"
-                });
-            }
-
-            lastScroll = currentScroll;
-        }
-    });
-}, []);
+        });
+    }, []);
 
 
     return (
         <nav className="fixed top-4 z-50 w-full">
-            <div ref={navRef} className="w-[95%] xl:max-w-[90%] 4xl:max-w-[1800px]! h-14 sm:h-16 mx-auto rounded-[36px] bg-foreground/7.5 backdrop-blur-sm">
+            <div ref={navRef} className="w-[95%] xl:max-w-[90%] 4xl:max-w-[1800px]! h-14 mx-auto rounded-[36px] bg-foreground/7.5 backdrop-blur-sm">
                 <div className="flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
 
                     {/* Logo */}
-                    <Link href="/" className="group flex items-center" aria-label="Techentia Home">
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 relative overflow-hidden transition-transform group-hover:scale-105">
+                    <Link
+                        href="/"
+                        className="group flex items-center rounded-full focus:outline-none focus-visible:ring-0"
+                        aria-label="Techentia Home"
+                    >
+
+                    {/* <Link href="/" className="group flex items-center" aria-label="Techentia Home"> */}
+                        <div className="w-5 h-5 sm:w-5 sm:h-5 relative overflow-hidden transition-transform group-hover:scale-105">
                             <Logo className="size-full object-fill text-foreground" />
                         </div>
+                    {/* </Link> */}
                     </Link>
 
                     {/* Links */}
@@ -91,7 +98,7 @@ export default function Navbar() {
                             <Link
                                 key={label}
                                 href={href}
-                                className="group relative px-4 py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+                                className="group relative px-4 py-2 text-[13px] font-medium text-foreground/70 transition-colors hover:text-foreground"
                             >
                                 {label}
                                 <span className="absolute inset-x-4 -bottom-px h-px bg-linear-to-r from-transparent via-foreground to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
@@ -104,7 +111,7 @@ export default function Navbar() {
                         <ThemeToggle />
 
                         <button className="rounded-lg p-2 transition-colors hover:bg-foreground/5" aria-label="Search">
-                            <Search className="h-5 w-5" />
+                            <Search className="h-4 w-4" />
                         </button>
                     </div>
                 </div>
